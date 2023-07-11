@@ -1,6 +1,5 @@
 class Card
-    #face value
-    #bool: facedown faceup
+
     def initialize(face_val)
         @face_val = face_val
         @facedown = true
@@ -25,12 +24,12 @@ class Card
             @facedown = true
         end
     end
- #to_s
+
     def to_s(num)
         num.to_s
     end
 
-    #==
+    
     def ==(card)
         if self.face_val == card.face_val
             return true
