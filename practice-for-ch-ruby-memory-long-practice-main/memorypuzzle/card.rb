@@ -1,6 +1,6 @@
 class Card
 
-    def initialize(face_val)
+    def initialize(face_val = "")
         @face_val = face_val
         @facedown = true
     end

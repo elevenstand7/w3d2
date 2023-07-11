@@ -2,36 +2,32 @@ require "./card.rb"
 
 class Board
 
-    def initialize(size)
-        @grid = Array.new(size) {Array.new(size, "___" )}
-
+    def initialize
+        @grid = Array.new(4) {Array.new(4, "___" )}
     end
 
     def populate
-        card_pair_amount = (@size ** 2) / 2
-        while card_pair_amount > 0
-        card_pair = Card.new(rand(0..10))
-            mini-count = 2
-            x_indx = rand(0...@size)
-            y_indx = rand(0...@size)
-
-            x_indx2 = rand(0...@size)
-            y_indx2 = rand(0...@size)
-
-            if empty?([x_indx, y_indx]) 
-                @grid[x_indx][y_indx] = card_pair
+       cards = ["a", "a", "b", "b", "c", "c", "d", "d", "e", "e", "f", "f", "g", "g", "h", "h"]
+       shuffled_cards = cards.shuffle
+        count = 0
+        while count < 16
+            (0..3).each do |indx1|
+                (0..3).each do |indx2|
+                    @grid[indx1][indx2] = shuffled_cards[count]
+                    count += 1
+                end
             end
-
-            if empty?([x_indx2, y_indx2]) 
-                @grid[x_indx2][y_indx2] = card_pair
-            end
-            card_pair_amount -= 1 if 
+        
         end
+ 
+
+    @grid
+
     end
 
     def empty?(pos)
-        pos[0] = col
-        pos[1] = row
+        col = pos[0]
+        row = pos[1]
 
         @grid[col][row] == "___"
 
