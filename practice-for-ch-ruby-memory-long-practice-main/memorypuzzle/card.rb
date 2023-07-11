@@ -16,7 +16,7 @@ class Card
 
     def reveal
         if @facedown
-            @facedown = fasle
+            @facedown = false
         end
     end
 
@@ -25,12 +25,26 @@ class Card
             @facedown = true
         end
     end
-
-    
-    
-
-    #to_s
+ #to_s
+    def to_s(num)
+        num.to_s
+    end
 
     #==
+    def ==(card)
+        if self.face_val == card.face_val
+            return true
+        else
+            return false
+        end
+    end
+
+    def display
+        if @facedown
+            raise " card is facedown"
+        else
+            return @face_val
+        end
+    end
 
 end
