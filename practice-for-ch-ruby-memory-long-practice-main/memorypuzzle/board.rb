@@ -8,29 +8,23 @@ class Board
 
     def populate
        cards = ["a", "a", "b", "b", "c", "c", "d", "d", "e", "e", "f", "f", "g", "g", "h", "h"]
-       shuffled_cards = cards.shuffle
-        count = 0
-        while count < 16
-            (0..3).each do |indx1|
-                (0..3).each do |indx2|
-                    @grid[indx1][indx2] = shuffled_cards[count]
-                    count += 1
+       shuffled_cards = cards.shuffle(random: Random.new(1))
+       p shuffled_cards
+        i = 0
+               (0..3).each do |indx1|
+                   (0..3).each do |indx2|
+                       @grid[indx1][indx2] = shuffled_cards[i]
+                       i += 1
+                   end
                 end
-            end
-        
-        end
- 
 
-    @grid
-
+       @grid
     end
 
     def empty?(pos)
         col = pos[0]
         row = pos[1]
-
         @grid[col][row] == "___"
-
     end
 
 
